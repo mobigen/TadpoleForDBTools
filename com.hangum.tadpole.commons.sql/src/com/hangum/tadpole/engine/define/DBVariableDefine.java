@@ -18,4 +18,6 @@ public class DBVariableDefine {
 	public static String[] HIVE2_VARIABLE = MYSQL_VARIABLES;
 	public static String[] TAJO_VARIABLE = MYSQL_VARIABLES;
 	public static String[] MONGO_VARIABLE = MYSQL_VARIABLES;
+	
+	public static String[] IRIS_VARIABLE = MYSQL_VARIABLES;
 }
