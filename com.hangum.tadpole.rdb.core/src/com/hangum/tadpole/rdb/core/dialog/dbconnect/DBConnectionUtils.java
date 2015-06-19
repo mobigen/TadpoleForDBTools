@@ -22,6 +22,7 @@ import com.hangum.tadpole.rdb.core.dialog.dbconnect.composite.AWSRDSLoginComposi
 import com.hangum.tadpole.rdb.core.dialog.dbconnect.composite.AbstractLoginComposite;
 import com.hangum.tadpole.rdb.core.dialog.dbconnect.composite.CubridLoginComposite;
 import com.hangum.tadpole.rdb.core.dialog.dbconnect.composite.HiveLoginComposite;
+import com.hangum.tadpole.rdb.core.dialog.dbconnect.composite.IRISLoginComposite;
 import com.hangum.tadpole.rdb.core.dialog.dbconnect.composite.MSSQLLoginComposite;
 import com.hangum.tadpole.rdb.core.dialog.dbconnect.composite.MariaDBLoginComposite;
 import com.hangum.tadpole.rdb.core.dialog.dbconnect.composite.MongoDBLoginComposite;
@@ -90,6 +91,8 @@ public class DBConnectionUtils {
 			loginComposite = new HiveLoginComposite(compositeBody, SWT.NONE, listGroupName, selGroupName, userDB);
 		} else if(dbDefine == DBDefine.TAJO_DEFAULT) {
 			loginComposite = new TajoLoginComposite(compositeBody, SWT.NONE, listGroupName, selGroupName, userDB);
+		} else if(dbDefine == DBDefine.IRIS_DEFAULT) {
+			loginComposite = new IRISLoginComposite(compositeBody, SWT.NONE, listGroupName, selGroupName, userDB);
 		}
 		loginComposite.setDataActionStatus(dataStatus);
 		

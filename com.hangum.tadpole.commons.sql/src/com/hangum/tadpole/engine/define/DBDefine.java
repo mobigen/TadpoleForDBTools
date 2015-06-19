@@ -68,7 +68,10 @@ public enum DBDefine {
 	MONGODB_DEFAULT,
 	
 	/** Aamazon RDS */
-	AMAZONRDS_DEFAULT
+	AMAZONRDS_DEFAULT,
+	
+	/** IRIS */
+	IRIS_DEFAULT
 	;	
 	
 	private static final Logger logger = Logger.getLogger(DBDefine.class);
@@ -100,6 +103,9 @@ public enum DBDefine {
 			case HIVE_DEFAULT:			return prefix + "HIVEConfig.xml";
 			case HIVE2_DEFAULT:			return prefix + "HIVE2Config.xml";
 			case TAJO_DEFAULT:			return prefix  + "TAJOConfig.xml";
+			
+			case IRIS_DEFAULT:			return prefix  + "IRISConfig.xml";
+			
 			default:
 				return "undefine db";
 		}
@@ -134,6 +140,8 @@ public enum DBDefine {
 		else if(type.equalsIgnoreCase("Apache Hive2")) 	return HIVE2_DEFAULT;
 		
 		else if(type.equalsIgnoreCase("Apache Tajo")) 	return TAJO_DEFAULT;
+		
+		else if(type.equalsIgnoreCase("IRIS")) 	return IRIS_DEFAULT;
 		else return null;
 	}
 	
@@ -180,6 +188,8 @@ public enum DBDefine {
 			
 			case TAJO_DEFAULT:		return "jdbc:tajo://%s:%s/%s";
 			
+			case IRIS_DEFAULT:		return "jdbc:iris://%s:%s";
+			
 			default:
 				return "undefine db";
 		}
@@ -210,6 +220,8 @@ public enum DBDefine {
 			case HIVE2_DEFAULT: 			return "Apache Hive2";
 			
 			case TAJO_DEFAULT: 			return "Apache Tajo";
+			
+			case IRIS_DEFAULT: 			return "IRIS";
 			default:
 				return "undefine db";
 		}
@@ -264,6 +276,8 @@ public enum DBDefine {
 		case HIVE2_DEFAULT: 		return DBVariableDefine.HIVE2_VARIABLE;
 		
 		case TAJO_DEFAULT: 			return DBVariableDefine.TAJO_VARIABLE;
+		
+		case IRIS_DEFAULT: 			return DBVariableDefine.IRIS_VARIABLE;
 		default:
 			return new String[]{};
 		}
@@ -328,6 +342,8 @@ public enum DBDefine {
 		supportDb.add(ORACLE_DEFAULT);
 		supportDb.add(POSTGRE_DEFAULT);
 		supportDb.add(SQLite_DEFAULT);
+		
+		supportDb.add(IRIS_DEFAULT);
 		
 		return supportDb;
 	}
